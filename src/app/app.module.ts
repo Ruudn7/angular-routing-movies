@@ -9,8 +9,9 @@ import { MoviesInCategoryComponent } from './pages/categories/movies-in-category
 import { MovieDetailsComponent } from './pages/movies/movie-details/movie-details.component';
 import { MoviesComponent } from './pages/movies/movies.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { MovieCoverComponent } from './shared/movie-cover/movie-cover.component';
+import { MoviesInYearComponent } from './pages/years/movies-in-year/movies-in-year.component';
 import { YearsComponent } from './pages/years/years.component';
+import { MovieCoverComponent } from './shared/movie-cover/movie-cover.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { YearsComponent } from './pages/years/years.component';
     MoviesInCategoryComponent,
     MovieCoverComponent,
     YearsComponent,
+    MoviesInYearComponent
   ],
   imports: [
     BrowserModule,
