@@ -10,6 +10,7 @@ import { MovieDetailsComponent } from './pages/movies/movie-details/movie-detail
 import { MoviesComponent } from './pages/movies/movies.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { MovieCoverComponent } from './shared/movie-cover/movie-cover.component';
+import { YearsComponent } from './pages/years/years.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MovieCoverComponent } from './shared/movie-cover/movie-cover.component'
     PageNotFoundComponent,
     MoviesInCategoryComponent,
     MovieCoverComponent,
+    YearsComponent,
   ],
   imports: [
     BrowserModule,

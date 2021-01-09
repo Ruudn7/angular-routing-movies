@@ -1,3 +1,4 @@
+import { YearsComponent } from './pages/years/years.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -13,6 +14,7 @@ const routes: Routes = [
     {path: 'movie/:id', component: MovieDetailsComponent},
     {path: 'categories', component: CategoriesComponent},
     {path: 'category/:category', component: MoviesInCategoryComponent},
+    {path: 'years', component: YearsComponent},
     {path: '**', component: PageNotFoundComponent}
 ]
 
