@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { HttpService } from '../../../services/http.service';
 import { Movie } from '../../../models/movie';
@@ -12,8 +12,24 @@ import { Movie } from '../../../models/movie';
 })
 export class MoviesInCategoryComponent implements OnInit {
   movies: Observable<Movie[]>;
+  route: ActivatedRoute;
 
-  constructor() {}
+  constructor(
+    private http: HttpService,
+    private acRoute: ActivatedRoute
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // const category = this.acRoute.snapshot.paramMap.get('category');
+    // this.movies = this.http.getMoviesFromCategory(category);
+
+    this.movies = this.acRoute.paramMap.pipe(
+      switchMap((params: ParamMap) => {
+        console.log(params.get('category'), this.http.getMoviesFromCategory(params.get('category')))
+        return this.http.getMoviesFromCategory(params.get('category'))
+      })
+    )
+
+    console.log(this.movies, 'asd')
+  }
 }
