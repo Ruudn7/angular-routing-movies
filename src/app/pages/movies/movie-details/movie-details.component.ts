@@ -1,7 +1,11 @@
+import { switchMap } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { HttpService } from '../../../services/http.service';
+
 import { Movie } from '../../../models/movie';
+import { HttpService } from '../../../services/http.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-movie-details',
@@ -11,12 +15,25 @@ import { Movie } from '../../../models/movie';
 export class MovieDetailsComponent implements OnInit {
   movieDetails: Observable<Movie>;
 
-  constructor(private http: HttpService) {
+  constructor(
+    private http: HttpService,
+    private route: ActivatedRoute  ,
+    private router: Router,
+    private location: Location
+  ) {
   }
 
   ngOnInit() {
+    console.log('jjj')
+    this.movieDetails = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) => {
+        console.log(this.http.getMovie(params.get('id')))
+        return this.http.getMovie(params.get('id'))
+      })
+    )
   }
 
   goToMovies() {
+    this.location.back();
   }
 }
