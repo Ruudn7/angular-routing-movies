@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./http-test.component.css']
 })
 export class HttpTestComponent {
-
+  errorMessage: string;
   sampleMovie: Movie = {
     country: 'USA',
     director: 'Damien Chazelle',
@@ -60,5 +60,17 @@ export class HttpTestComponent {
     ).subscribe();
   }
 
-  delete() {}
+  delete() {
+    return this.httpMovies.deletehMovie('55').subscribe();
+  }
+
+  error() {
+    return this.httpMovies.makeError().subscribe(
+      { error: (err: string) => this.errorMessage = err }
+    );
+  }
+
+  headers() {
+    return this.httpMovies.headers().subscribe();
+  }
 }
