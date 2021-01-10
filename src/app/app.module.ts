@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { MoviesInYearComponent } from './pages/years/movies-in-year/movies-in-year.component';
 import { YearsComponent } from './pages/years/years.component';
 import { MovieCoverComponent } from './shared/movie-cover/movie-cover.component';
+import { HttpTestComponent } from './pages/http-test/http-test.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MovieCoverComponent } from './shared/movie-cover/movie-cover.component'
     MoviesInCategoryComponent,
     MovieCoverComponent,
     YearsComponent,
-    MoviesInYearComponent
+    MoviesInYearComponent,
+    HttpTestComponent
   ],
   imports: [
     BrowserModule,
