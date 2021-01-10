@@ -73,4 +73,8 @@ export class HttpTestComponent {
   headers() {
     return this.httpMovies.headers().subscribe();
   }
+  
+  params() {
+    return this.httpMovies.params().subscribe();
+  }
 }

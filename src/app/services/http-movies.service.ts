@@ -1,6 +1,6 @@
 import { Movie } from './../models/movie';
 import { Observable, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, tap } from 'rxjs/operators';
 
@@ -75,6 +75,16 @@ export class HttpMoviesService {
         console.log(res.headers.get('expires'))
         console.log(res.headers.get('pragma'))
       })
+    )
+  }
+
+  params(): Observable<Movie[]> {
+    const httpParams = new HttpParams()
+      .set('_sort', 'title')
+      .set('_order', 'desc')
+
+    return this.http.get<Movie[]>(this.url, {params: httpParams}).pipe(
+      tap(console.log)
     )
   }
 }
