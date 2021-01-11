@@ -1,24 +1,38 @@
-import { NgForm } from '@angular/forms';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { HttpMoviesService } from 'src/app/services/http-movies.service';
+
 import { Movie } from './../../models/movie';
-import { Component, OnInit } from '@angular/core';
+import { HttpService } from './../../services/http.service';
 
 @Component({
   selector: 'app-add-movie',
   templateUrl: './add-movie.component.html',
   styleUrls: ['./add-movie.component.css']
 })
-export class AddMovieComponent implements OnInit {
+export class AddMovieComponent {
 
-  model: Partial<Movie>;
+  model: Partial<Movie> = {};
+  categories: Observable<string[]>;
+  yaers: string[];
 
-  constructor() { }
-
-  ngOnInit(): void {
-    this.model = {title: 'Jakiś film'};
+  constructor(
+    public http: HttpService,
+    private moviesService: HttpMoviesService
+  ) {
+    this.categories = this.http.getCategories();
+    this.http.getYears().subscribe(
+      (years: string[]) => this.yaers = years
+    )
   }
 
-  send() { 
+  submit() { 
     console.log(this.model)
+    this.moviesService.postMovie(this.model as Movie).subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    )
   }
 
 }
