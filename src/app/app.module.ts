@@ -13,23 +13,27 @@ import { MoviesInYearComponent } from './pages/years/movies-in-year/movies-in-ye
 import { YearsComponent } from './pages/years/years.component';
 import { MovieCoverComponent } from './shared/movie-cover/movie-cover.component';
 import { HttpTestComponent } from './pages/http-test/http-test.component';
+import { AddMovieComponent } from './pages/add-movie/add-movie.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieDetailsComponent,
-    MoviesComponent,
+  MoviesComponent,
     CategoriesComponent,
     PageNotFoundComponent,
     MoviesInCategoryComponent,
     MovieCoverComponent,
     YearsComponent,
     MoviesInYearComponent,
-    HttpTestComponent
+    HttpTestComponent,
+    AddMovieComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppModuleRouting
   ],
   providers: [],

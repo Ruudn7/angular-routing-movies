@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AddMovieComponent } from './pages/add-movie/add-movie.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { MoviesInCategoryComponent } from './pages/categories/movies-in-category/movies-in-category.component';
 import { HttpTestComponent } from './pages/http-test/http-test.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
     {path: '', redirectTo: '/movies', pathMatch: 'full' },
     {path: 'movies', component: MoviesComponent},
     {path: 'movie/:id', component: MovieDetailsComponent},
+    {path: 'add-movie', component: AddMovieComponent}, 
     {path: 'categories', component: CategoriesComponent},
     {path: 'category/:category', component: MoviesInCategoryComponent},
     {path: 'years', component: YearsComponent},
