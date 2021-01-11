@@ -1,0 +1,13 @@
+<div class="grid">
+    <form class="container" #movieForm="ngForm" (ngSubmit)=send()>
+        <input
+            type="text"
+            placeholder="title"
+            [(ngModel)]='model.title'
+            name="title"
+        >   
+        <button type="submit">Send</button>
+        <button type="reset">Reset</button>
+        <button type="button">Button</button>
+    </form>
+</div>
