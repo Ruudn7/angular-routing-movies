@@ -1,56 +1,72 @@
 <div class="grid">
-    <form class="container" (ngSubmit)="submit()" #moveForm="ngForm">
+    <form class="container" (ngSubmit)="submit()" #movieForm="ngForm"> 
       <div class="row">
         <div class="input-field col s8">
-          <input id="title" type="text" [(ngModel)]="model.title" name="title" />
+          <input
+          id="title"
+          type="text"
+          [(ngModel)]="model.title"
+          name="title"
+          required
+          minlength="2"
+          #title="ngModel"
+        />
           <label for="title">Title</label>
         </div>
+        <ng-container *ngIf="title.invalid && title.touched">
+            <div class="card-panel red darken-1" *ngIf="title.errors.required">
+                Failed required
+            </div>
+            <div class="card-panel red darken-1" *ngIf="title.errors.minlength">
+                Text is to short
+            </div>
+        </ng-container>
       </div>
       <div class="row">
         <div class="input-field col s8">
-          <select class="browser-default" [(ngModel)]="model.year" name="year">
+          <select class="browser-default" [(ngModel)]="model.year" name="year" required>
             <option *ngFor="let year of yaers" [ngValue]="year">{{year}}</option>
           </select>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s8">
-          <select class="browser-default" [(ngModel)]="model.category" name="category">
+          <select class="browser-default" [(ngModel)]="model.category" name="category" required>
             <option *ngFor="let cat of categories | async" [ngValue]="cat">{{ cat }}</option>
           </select>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s8">
-          <input id="director" type="text" [(ngModel)]="model.director" name="director"/>
+          <input id="director" type="text" [(ngModel)]="model.director" name="director" required/>
           <label for="director">Director</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s8">
-          <input id="plot" type="text" [(ngModel)]="model.plot" name="plot"/>
+          <input id="plot" type="text" [(ngModel)]="model.plot" name="plot" required/>
           <label for="plot">Plot</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s8">
-          <input id="country" type="text" [(ngModel)]="model.country" name="country"/>
+          <input id="country" type="text" [(ngModel)]="model.country" name="country" required/>
           <label for="country">Country</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s8">
-          <input id="imdb" type="text" [(ngModel)]="model.imdbRating" name="imdbRating"/>
+          <input id="imdb" type="text" [(ngModel)]="model.imdbRating" name="imdbRating" required/>
           <label for="imdb">IMDB Rating</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s8">
-          <input id="poster" type="text" [(ngModel)]="model.poster" name="poster"/>
+          <input id="poster" type="text" [(ngModel)]="model.poster" name="poster" required/>
           <label for="poster">Poster</label>
         </div>
       </div>
-      <button class="btn-small" type="submit">Send</button>
+      <button class="btn-small" type="submit" [disabled]="movieForm.invalid">Send</button>
       <button class="btn-small red" type="reset">Reset</button>
     </form>
   </div>

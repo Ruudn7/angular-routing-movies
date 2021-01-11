@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { HttpMoviesService } from 'src/app/services/http-movies.service';
 
 import { Movie } from './../../models/movie';
@@ -28,7 +27,6 @@ export class AddMovieComponent {
   }
 
   submit() { 
-    console.log(this.model)
     this.moviesService.postMovie(this.model as Movie).subscribe(
       res => console.log(res),
       err => console.log(err)
