@@ -1,3 +1,4 @@
+import { DirectivesComponent } from './pages/directives/directives.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -21,6 +22,7 @@ const routes: Routes = [
     {path: 'years', component: YearsComponent},
     {path: 'year/:year', component: MoviesInYearComponent},
     {path: 'http-test', component: HttpTestComponent},
+    {path: 'directives', component: DirectivesComponent},
     {path: '**', component: PageNotFoundComponent}
 ]
 

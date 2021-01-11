@@ -1,3 +1,4 @@
+import { PopupDirective } from './pages/custom-elements/popup-deirective';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,12 +16,17 @@ import { MovieCoverComponent } from './shared/movie-cover/movie-cover.component'
 import { HttpTestComponent } from './pages/http-test/http-test.component';
 import { AddMovieComponent } from './pages/add-movie/add-movie.component';
 import { FormsModule } from '@angular/forms';
+import { DirectivesComponent } from './pages/directives/directives.component';
 
 @NgModule({
+  exports: [
+    PopupDirective
+  ],
   declarations: [
+    PopupDirective,
     AppComponent,
     MovieDetailsComponent,
-  MoviesComponent,
+    MoviesComponent,
     CategoriesComponent,
     PageNotFoundComponent,
     MoviesInCategoryComponent,
@@ -28,15 +34,16 @@ import { FormsModule } from '@angular/forms';
     YearsComponent,
     MoviesInYearComponent,
     HttpTestComponent,
-    AddMovieComponent
+    AddMovieComponent,
+    DirectivesComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppModuleRouting
+    AppModuleRouting,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {} 

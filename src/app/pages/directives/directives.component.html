@@ -1,0 +1,21 @@
+<ng-template [ngIf]="true">
+  <p>Hello World</p>
+</ng-template>
+
+<div class="pop-up" *appPopup="2000;color: 'blue'">
+  <p>YOU WON ONE BILLION DOLLARS $$$!</p>
+</div>
+ 
+<div class="pop-up" *appPopup="5000;color: 'green'">
+  <p>YOU WON TWO BILLION DOLLARS $$$!</p>
+</div>
+ 
+<ng-template [appPopup]="8000" [appPopupColor]="'black'">
+  <div class="pop-up">
+    <p>YOU WON THREE BILLION DOLLARS $$$!</p>
+  </div>
+</ng-template>
+ 
+<div class="pop-up" *appPopup="12000">
+  <p>YOU WON FOUR BILLION DOLLARS $$$!</p>
+</div>
